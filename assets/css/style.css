@@ -669,14 +669,14 @@ a:focus-visible, button:focus-visible {
   /* A primeira tela é só o hero: o círculo acompanha a altura visível e a faixa de contato fica abaixo da dobra */
   .hero {
     --tela: 100vh;
-    --arte: clamp(140px, calc(var(--tela) - 530px), 260px);
+    --arte: clamp(170px, calc(var(--tela) - 490px), 290px);
     display: grid;
     align-items: center;
     min-height: calc(var(--tela) - 77px);
-    padding: 20px 0 96px;
+    padding: 14px 0 84px;
   }
 
-  .hero .container { width: 100%; gap: 16px; }
+  .hero .container { width: 100%; gap: 12px; }
 
   .faixa { margin-top: 0; }
 
@@ -726,7 +726,7 @@ a:focus-visible, button:focus-visible {
 
   .botoes-movel { display: flex; }
 
-  .hero-texto p { margin-bottom: 12px; font-size: 1rem; }
+  .hero-texto p { margin-bottom: 12px; font-size: .94rem; }
 
   .hero .botoes { margin-top: 12px; }
 
