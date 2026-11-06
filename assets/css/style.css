@@ -669,7 +669,7 @@ a:focus-visible, button:focus-visible {
   /* A primeira tela é só o hero: o círculo acompanha a altura visível e a faixa de contato fica abaixo da dobra */
   .hero {
     --tela: 100vh;
-    --arte: clamp(170px, calc(var(--tela) - 490px), 290px);
+    --arte: clamp(190px, calc(var(--tela) - 436px), min(320px, 78vw));
     display: grid;
     align-items: center;
     min-height: calc(var(--tela) - 77px);
@@ -697,14 +697,18 @@ a:focus-visible, button:focus-visible {
 
   .duas-colunas { gap: 32px; }
 
+  .so-pc { display: none; }
+
   .hero-arte { max-width: var(--arte); }
+
+  .hero-centro { width: 68%; }
 
   .selo-preco {
     top: 50%;
     right: auto;
     bottom: auto;
     left: 50%;
-    width: 60%;
+    width: 64%;
     padding: 0;
     background: none;
     box-shadow: none;
@@ -712,9 +716,9 @@ a:focus-visible, button:focus-visible {
     transform: translate(-50%, -50%);
   }
 
-  .selo-preco > span:first-child { font-size: max(8.5px, calc(var(--arte) * .046)); }
+  .selo-preco > span:first-child { font-size: max(9px, calc(var(--arte) * .05)); }
 
-  .selo-preco strong { font-size: calc(var(--arte) * .09); }
+  .selo-preco strong { font-size: calc(var(--arte) * .105); }
 
   .hero-arte:has(.selo-preco) .hero-centro > * { display: none; }
 
