@@ -107,17 +107,6 @@ p { margin: 0 0 1em; }
 
 .marca img { width: 150px; }
 
-.topo-fone {
-  display: none;
-  margin-left: auto;
-  color: var(--cor-principal);
-  font-size: .95rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.topo-fone:hover { color: var(--cor-azul-vivo); }
-
 .menu-botao {
   display: none;
   flex-direction: column;
@@ -213,6 +202,7 @@ p { margin: 0 0 1em; }
   top: 50%;
   left: 50%;
   width: 62%;
+  min-height: 0;
   aspect-ratio: 1;
   display: flex;
   flex-direction: column;
@@ -644,8 +634,6 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 980px) {
   .menu-botao { display: flex; }
 
-  .topo-fone { display: block; }
-
   .menu {
     display: none;
     position: absolute;
@@ -678,9 +666,19 @@ a:focus-visible, button:focus-visible {
 
 /* Celular */
 @media (max-width: 680px) {
-  .hero { padding: 28px 0 120px; }
+  /* A primeira tela é só o hero: o círculo acompanha a altura visível e a faixa de contato fica abaixo da dobra */
+  .hero {
+    --tela: 100vh;
+    --arte: clamp(140px, calc(var(--tela) - 530px), 260px);
+    display: grid;
+    align-items: center;
+    min-height: calc(var(--tela) - 77px);
+    padding: 20px 0 96px;
+  }
 
-  .hero .container { gap: 18px; }
+  .hero .container { width: 100%; gap: 16px; }
+
+  .faixa { margin-top: 0; }
 
   .hero .container,
   .duas-colunas,
@@ -699,14 +697,14 @@ a:focus-visible, button:focus-visible {
 
   .duas-colunas { gap: 32px; }
 
-  .hero-arte { max-width: 230px; }
+  .hero-arte { max-width: var(--arte); }
 
   .selo-preco {
     top: 50%;
     right: auto;
     bottom: auto;
     left: 50%;
-    width: 58%;
+    width: 60%;
     padding: 0;
     background: none;
     box-shadow: none;
@@ -714,11 +712,11 @@ a:focus-visible, button:focus-visible {
     transform: translate(-50%, -50%);
   }
 
-  .selo-preco > span:first-child { font-size: .66rem; }
+  .selo-preco > span:first-child { font-size: max(8.5px, calc(var(--arte) * .046)); }
 
-  .selo-preco strong { font-size: 1.3rem; }
+  .selo-preco strong { font-size: calc(var(--arte) * .09); }
 
-  .hero-arte:has(.selo-preco) .hero-centro > * { visibility: hidden; }
+  .hero-arte:has(.selo-preco) .hero-centro > * { display: none; }
 
   .hero .botao-claro { display: none; }
 
@@ -749,32 +747,15 @@ a:focus-visible, button:focus-visible {
   .whatsapp span { display: none; }
 }
 
-/* Celulares estreitos: não sobra espaço para o telefone ao lado da logo */
-@media (max-width: 350px) {
-  .topo-fone { display: none; }
-}
-
-/* Celulares baixos: o círculo diminui e o botão vai para a esquerda, longe do WhatsApp */
-@media (max-width: 680px) and (max-height: 760px) {
-  .hero-arte { max-width: 170px; }
-
+/* Celulares muito baixos: o botão vai para a esquerda, longe do WhatsApp */
+@media (max-width: 680px) and (max-height: 660px) {
   .botoes-movel { justify-content: flex-start; }
-
-  .selo-preco > span:first-child { font-size: .56rem; }
-
-  .selo-preco strong { font-size: 1.05rem; }
 }
 
-@media (max-width: 680px) and (max-height: 700px) {
-  .hero-arte { max-width: 146px; }
-
-  .hero { padding-top: 18px; }
-
-  .hero .container { gap: 12px; }
-
-  .selo-preco > span:first-child { font-size: .5rem; }
-
-  .selo-preco strong { font-size: .95rem; }
+@supports (height: 100svh) {
+  @media (max-width: 680px) {
+    .hero { --tela: 100svh; }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
