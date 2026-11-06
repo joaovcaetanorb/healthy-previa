@@ -1,16 +1,16 @@
 /* Identidade do site: cores tiradas da logo e dos posts da Healthy. */
 :root {
-  --cor-principal: #163e70;
-  --cor-principal-escura: #0d2c54;
-  --cor-azul-vivo: #0f4fa8;
-  --cor-rosa: #dc9dbb;
-  --cor-rosa-claro: #f7e6ee;
-  --cor-lilas: #7a5f88;
+  --cor-principal: #0a2466;
+  --cor-principal-escura: #011a4d;
+  --cor-azul-vivo: #073298;
+  --cor-rosa: #fc6296;
+  --cor-rosa-claro: #ffe6ef;
+  --cor-lilas: #8c3391;
   --cor-fundo: #ffffff;
-  --cor-fundo-suave: #f4f3f8;
-  --cor-texto: #1d2b42;
-  --cor-texto-suave: #55607a;
-  --cor-borda: #e1e0ea;
+  --cor-fundo-suave: #f6f4fa;
+  --cor-texto: #141f45;
+  --cor-texto-suave: #545c7a;
+  --cor-borda: #e4e1ee;
   --fonte: "Poppins", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --raio: 18px;
   --largura: 1140px;
@@ -105,7 +105,7 @@ p { margin: 0 0 1em; }
 
 .marca { display: block; }
 
-.marca img { width: 150px; }
+.marca img { width: 140px; }
 
 .menu-botao {
   display: none;
@@ -212,12 +212,12 @@ p { margin: 0 0 1em; }
   padding: 24px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 18px 40px rgba(13, 44, 84, .22);
+  box-shadow: 0 18px 40px rgba(1, 26, 77, .22);
   text-align: center;
   transform: translate(-50%, -50%);
 }
 
-.hero-centro img { width: 82%; }
+.hero-centro img { width: 70%; }
 
 .hero-centro p {
   margin: 0;
@@ -233,7 +233,7 @@ p { margin: 0 0 1em; }
   padding: 10px 16px;
   border-radius: 16px;
   background: #fff;
-  box-shadow: 0 10px 24px rgba(13, 44, 84, .2);
+  box-shadow: 0 10px 24px rgba(1, 26, 77, .2);
   color: var(--cor-lilas);
   line-height: 1.2;
 }
@@ -267,7 +267,7 @@ p { margin: 0 0 1em; }
   overflow: hidden;
   padding: 64px 0 104px;
   background: var(--cor-principal);
-  color: #dfe6f2;
+  color: #e2e6f5;
 }
 
 .titulo-pagina h1 { color: #fff; }
@@ -311,7 +311,7 @@ p { margin: 0 0 1em; }
   padding: 24px 28px;
   border-radius: var(--raio);
   background: #fff;
-  box-shadow: 0 14px 34px rgba(13, 44, 84, .13);
+  box-shadow: 0 14px 34px rgba(1, 26, 77, .13);
 }
 
 .faixa-cartao div > span {
@@ -389,7 +389,7 @@ p { margin: 0 0 1em; }
 }
 
 .cartao:hover {
-  box-shadow: 0 12px 28px rgba(13, 44, 84, .1);
+  box-shadow: 0 12px 28px rgba(1, 26, 77, .1);
   transform: translateY(-3px);
 }
 
@@ -504,7 +504,7 @@ p { margin: 0 0 1em; }
   overflow: hidden;
   padding: 64px 0;
   background: var(--cor-principal);
-  color: #dfe6f2;
+  color: #e2e6f5;
 }
 
 .chamada .container {
@@ -571,17 +571,46 @@ p { margin: 0 0 1em; }
 
 /* Rodapé */
 .rodape {
-  padding: 56px 0 24px;
-  background: var(--cor-principal-escura);
-  color: #cdd8e8;
+  position: relative;
+  padding: 60px 0 24px;
+  background: var(--cor-fundo-suave);
+  color: var(--cor-texto-suave);
   font-size: .92rem;
 }
 
-.rodape a { color: #fff; text-decoration: none; }
+/* Faixa com o degradê da logo (azul > roxo > rosa) */
+.rodape::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, var(--cor-azul-vivo), var(--cor-lilas), var(--cor-rosa));
+}
+
+.rodape a { color: var(--cor-principal); text-decoration: none; }
 
 .rodape a:hover { color: var(--cor-rosa); }
 
-.rodape-logo { width: 150px; margin-bottom: 14px; filter: brightness(0) invert(1); }
+.rodape-logo { width: 150px; margin-bottom: 14px; }
+
+.rodape-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.rodape-social svg {
+  box-sizing: content-box;
+  padding: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-azul-vivo), var(--cor-lilas) 55%, var(--cor-rosa));
+  color: #fff;
+  transition: transform .2s;
+}
+
+.rodape-social:hover svg { transform: scale(1.08); }
 
 .rodape-grade {
   display: grid;
@@ -589,7 +618,7 @@ p { margin: 0 0 1em; }
   gap: 32px;
 }
 
-.rodape h3 { color: var(--cor-rosa); font-size: .95rem; }
+.rodape h3 { color: var(--cor-lilas); font-size: .95rem; }
 
 .rodape ul { margin: 0; padding: 0; list-style: none; }
 
@@ -598,7 +627,7 @@ p { margin: 0 0 1em; }
 .rodape-fim {
   margin-top: 32px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, .15);
+  border-top: 1px solid var(--cor-borda);
   font-size: .8rem;
 }
 
@@ -642,7 +671,7 @@ a:focus-visible, button:focus-visible {
     right: 0;
     padding: 8px 20px 16px;
     background: var(--cor-principal);
-    box-shadow: 0 14px 24px rgba(13, 44, 84, .2);
+    box-shadow: 0 14px 24px rgba(1, 26, 77, .2);
   }
 
   .menu.aberto { display: block; }
@@ -738,7 +767,7 @@ a:focus-visible, button:focus-visible {
 
   .secao { padding: 56px 0; }
 
-  .marca img { width: 124px; }
+  .marca img { width: 118px; }
 
   .onda { height: 70px; }
 
